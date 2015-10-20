@@ -1,7 +1,9 @@
 <?php
 
-class UserController {
+class UserController extends Controller {
+
     public function listAction() {
-        echo '<h1>Users List action executed!</h1>';
+        $this->view('user_list');
     }
+
 }

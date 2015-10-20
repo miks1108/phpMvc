@@ -1,1 +1,1 @@
-<?php
+<h1>Users List action executed!</h1>
