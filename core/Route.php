@@ -7,11 +7,11 @@ class Route {
 
         $rotes = explode('/', $_SERVER['REQUEST_URI']);
 
-        if(isset($rotes[1]) && !empty($rotes[1])) {
+        if(!empty($rotes[1])) {
             $controllerName = $rotes[1] . 'Controller';
         }
 
-        if(isset($rotes[2]) && !empty($rotes[2])) {
+        if(!empty($rotes[2])) {
             $actionName = strtolower($rotes[2]) . 'Action';
         }
 
