@@ -9,8 +9,9 @@ class UserController extends Controller {
 
     public function listAction() {
         $con = Database::pdo();
-        $resultStmt = $con->query('SELECT * FROM users');
-        $this->users = $resultStmt->fetchAll();
+        $stmt = $con->prepare('SELECT * FROM users');
+        $stmt->execute();
+        $this->users = $stmt->fetchAll();
         $this->view('user_list');
     }
 
