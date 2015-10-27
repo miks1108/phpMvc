@@ -7,17 +7,11 @@
 <body>
 
 <header class="main">
-    <a class="logo" href="#">КА "ШАГ"</a>
+    <a class="logo" href="/">КА "ШАГ"</a>
     <nav class="main-menu">
         <ul>
             <li>
-                <a href="/students.php">Студенты</a>
-            </li>
-            <li>
-                <a href="/groups.php">Группы</a>
-            </li>
-            <li>
-                <a href="/specialization.php">Специализации</a>
+                <a href="/user/list">Пользователи</a>
             </li>
             <!--<li>
                 <a href="#students">Студентам</a>

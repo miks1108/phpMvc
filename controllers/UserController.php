@@ -7,16 +7,9 @@ class UserController extends Controller {
     }
 
     public function listAction() {
-        $this->users = [
-            [
-                'firstName' => 'David',
-                'lastName' => 'Smith'
-            ],
-            [
-                'firstName' => 'Sean',
-                'lastName' => 'Parker'
-            ]
-        ];
+        $con = new PDO('mysql:host=localhost;dbname=itstep_db', 'itstep', '123123');
+        $resultStmt = $con->query('SELECT * FROM users');
+        $this->users = $resultStmt->fetchAll();
         $this->view('user_list');
     }
 
