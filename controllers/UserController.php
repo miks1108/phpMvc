@@ -16,10 +16,10 @@ class UserController extends Controller {
         die();*/
 
         $con = Database::pdo();
-        $stmt = $con->prepare('SELECT * FROM `users` LIMIT :off, :numb');
+        $stmt = $con->prepare('SELECT * FROM `users` LIMIT :offset, :number');
         $stmt->execute([
-            ':off' => $limitOffset,
-            ':numb' => $number
+            ':offset' => $limitOffset,
+            ':number' => $number
         ]);
         $this->users = $stmt->fetchAll();
         $this->view('user_list');
