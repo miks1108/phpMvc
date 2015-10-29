@@ -3,7 +3,7 @@
 <ul>
     <? foreach($this->users as $user) { ?>
         <li>
-            <?=$user['UserName']?>
+            (<?=$user['Id']?>) <?=$user['UserName']?>
         </li>
     <? } ?>
 </ul>
