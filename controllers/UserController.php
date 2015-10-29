@@ -1,9 +1,9 @@
 <?php
+require_once "model/PDO/UsersPDO.php";
 
 class UserController extends Controller {
 
     public function indexAction() {
-        $con = Database::pdo();
         $this->view('user_index');
     }
 
@@ -12,16 +12,10 @@ class UserController extends Controller {
         $page = isset($_GET['page']) ? $_GET['page'] : 1;
         $limitOffset = ($page - 1) * $number;
 
-        /*var_dump([$limitOffset, $number]);
-        die();*/
+        $this->page = $page;
+        $this->pageCount = ceil(UsersPDO::count() / $number);
+        $this->users = UsersPDO::getAllLimit($limitOffset, $number);
 
-        $con = Database::pdo();
-        $stmt = $con->prepare('SELECT * FROM `users` LIMIT :offset, :number');
-        $stmt->execute([
-            ':offset' => $limitOffset,
-            ':number' => $number
-        ]);
-        $this->users = $stmt->fetchAll();
         $this->view('user_list');
     }
 
