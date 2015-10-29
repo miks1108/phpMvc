@@ -5,7 +5,10 @@
  */
 class UsersPDO {
     public static function getAll() {
-        return getAllLimit();
+        $con = Database::pdo();
+        $result = $con->query('SELECT * FROM `users`');
+
+        return $result->fetchAll();
     }
 
     public static function getAllLimit($offset = 0, $number = 0) {
