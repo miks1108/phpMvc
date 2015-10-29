@@ -10,7 +10,7 @@
 <br>
 
 <? for($i = 1; $i <= $this->pageCount; $i++) { ?>
-    <a href="?page=<?=$i?>">
-        [<?=$i?>]
+    <a href="?page=<?=$i?>" class="page <? if($this->page == $i) echo "selected" ?>">
+        [ <?=$i?> ]
     </a>
 <? } ?>
