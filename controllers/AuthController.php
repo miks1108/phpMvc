@@ -47,6 +47,7 @@ class AuthController extends Controller {
             if(empty($errors)) {
                 UsersPDO::addUser($userName, $email, $password);
                 $this->view('register_success');
+                return;
             }
             else {
                 $this->errors = $errors;
