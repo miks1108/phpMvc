@@ -48,12 +48,9 @@ class AuthController extends Controller {
             }
             else {
                 $this->errors = $errors;
-                $this->view('register');
             }
 
         }
-
-
 
         $this->view("register");
     }

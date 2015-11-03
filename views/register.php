@@ -1,5 +1,11 @@
 <h1>Register new user</h1>
 
+<div class="errors">
+    <? foreach ($this->erros as $error) { ?>
+        <p><?=$error?></p>
+    <? } ?>
+</div>
+
 <form action="" method="post">
     User Name:
     <input type="text" name="userName"> <br>
