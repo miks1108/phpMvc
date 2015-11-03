@@ -82,6 +82,14 @@ header.main li:hover > ul {
     animation-timing-function: ease;
 }
 
+.errors {
+    margin: 20px 0;
+
+    color: #ff0000;
+    font-family: monospace;
+    font-size: 12px;
+}
+
 @keyframes drop-down {
     0% {
         opacity: 0;
