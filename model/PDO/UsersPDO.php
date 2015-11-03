@@ -4,6 +4,18 @@
  * @author Gutsulyak Vadim <guts.vadim@gmail.com>
  */
 class UsersPDO {
+
+    public static function addUser($userName, $email, $password) {
+        $con = Database::pdo();
+        $stmt = $con->prepare('INSERT INTO users (UserName, `Password`, Email)
+            VALUES (:userName, :password, :email)');
+        $stmt->execute([
+            ':userName' => $userName,
+            ':password' => $password,
+            ':email' => $email
+        ]);
+    }
+
     public static function getAll() {
         $con = Database::pdo();
         $result = $con->query('SELECT * FROM `users`');
