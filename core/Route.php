@@ -25,6 +25,10 @@ class Route {
             if(method_exists($controller, $actionName)) {
                 $controller->$actionName();
             }
+            else {
+                header('Status: 404 Not Found');
+                echo '<h1>404 Not Found</h1>';
+            }
         }
         else {
             header('Status: 404 Not Found');
