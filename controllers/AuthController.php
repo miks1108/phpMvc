@@ -42,7 +42,18 @@ class AuthController extends Controller {
                     $errors[] = 'Password confirmation is wrong';
                 }
             }
+
+            if(empty($errors)) {
+                // TODO: register logic
+            }
+            else {
+                $this->errors = $errors;
+                $this->view('register');
+            }
+
         }
+
+
 
         $this->view("register");
     }
