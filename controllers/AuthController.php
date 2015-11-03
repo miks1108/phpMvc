@@ -1,4 +1,5 @@
 <?php
+require_once 'model/PDO/UsersPDO.php';
 
 /**
  * @author Gutsulyak Vadim <guts.vadim@gmail.com>
@@ -44,7 +45,8 @@ class AuthController extends Controller {
             }
 
             if(empty($errors)) {
-                // TODO: register logic
+                UsersPDO::addUser($userName, $email, $password);
+                $this->view('register_success');
             }
             else {
                 $this->errors = $errors;

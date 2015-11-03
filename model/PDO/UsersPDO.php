@@ -9,6 +9,7 @@ class UsersPDO {
         $con = Database::pdo();
         $stmt = $con->prepare('INSERT INTO users (UserName, `Password`, Email)
             VALUES (:userName, :password, :email)');
+
         $stmt->execute([
             ':userName' => $userName,
             ':password' => $password,
