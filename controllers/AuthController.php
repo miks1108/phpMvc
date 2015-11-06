@@ -72,6 +72,8 @@ class AuthController extends Controller {
             else {
                 $errors[] = 'Login failed';
             }
+
+            $this->errors = $errors;
         }
 
         $this->view("login");
