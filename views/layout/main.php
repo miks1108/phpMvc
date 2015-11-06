@@ -13,6 +13,12 @@
             <li>
                 <a href="/user/list/">Пользователи</a>
             </li>
+            <li>
+                <a href="/auth/register/">Регистрация</a>
+            </li>
+            <li>
+                <a href="/auth/login/">Войти</a>
+            </li>
             <!--<li>
                 <a href="#students">Студентам</a>
                 <ul>
