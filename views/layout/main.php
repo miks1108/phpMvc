@@ -10,15 +10,21 @@
     <a class="logo" href="/">КА "ШАГ"</a>
     <nav class="main-menu">
         <ul>
-            <li>
-                <a href="/user/list/">Пользователи</a>
-            </li>
-            <li>
-                <a href="/auth/register/">Регистрация</a>
-            </li>
-            <li>
-                <a href="/auth/login/">Войти</a>
-            </li>
+            <? if(isset($_SESSION['userName'])) { ?>
+                <li>
+                    <a href="/user/list/">Пользователи</a>
+                </li>
+                <li>
+                    <a href="/auth/logout/">Выйти(<?=$_SESSION['userName']?>)</a>
+                </li>
+            <? } else { ?>
+                <li>
+                    <a href="/auth/register/">Регистрация</a>
+                </li>
+                <li>
+                    <a href="/auth/login/">Войти</a>
+                </li>
+            <? } ?>
             <!--<li>
                 <a href="#students">Студентам</a>
                 <ul>
