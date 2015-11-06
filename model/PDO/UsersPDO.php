@@ -17,6 +17,20 @@ class UsersPDO {
         ]);
     }
 
+    public static function get($userName, $password) {
+        $queryString = 'SELECT * FROM `users` WHERE UserName=:userName AND `Password`=:password';
+        $params = [
+            ':userName' => $userName,
+            ':password' => $password
+        ];
+
+        $con = Database::pdo();
+        $stmt = $con->prepare($queryString);
+        $stmt->execute($params);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public static function getAll() {
         $con = Database::pdo();
         $result = $con->query('SELECT * FROM `users`');
