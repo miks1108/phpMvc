@@ -1,5 +1,6 @@
 <?php
 require_once 'model/PDO/UsersPDO.php';
+require_once 'model/AuthModel.php';
 
 /**
  * @author Gutsulyak Vadim <guts.vadim@gmail.com>
