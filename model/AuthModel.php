@@ -18,6 +18,10 @@ class AuthModel {
         $_SESSION['userName'] = null;
     }
 
+    public static function isLogin() {
+        return isset($_SESSION['userName']);
+    }
+
     public static function userExists($userName, $password = null) {
         $user = UsersPDO::get($userName, $password);
 
