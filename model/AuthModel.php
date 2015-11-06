@@ -15,6 +15,11 @@ class AuthModel {
     }
 
     private static function userExists($userName, $password) {
-        return empty(UsersPDO::get($userName, $password)) ? false : true;
+        $user = UsersPDO::get($userName, $password);
+
+        if(empty($user)) {
+            return false;
+        }
+        return true;
     }
 }
