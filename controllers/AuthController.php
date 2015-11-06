@@ -45,6 +45,10 @@ class AuthController extends Controller {
                 }
             }
 
+            if(AuthModel::userExists($userName)) {
+                $errors[] = 'This username already exists';
+            }
+
             if(empty($errors)) {
                 UsersPDO::addUser($userName, $email, $password);
                 $this->view('register_success');

@@ -18,7 +18,7 @@ class AuthModel {
         $_SESSION['userName'] = null;
     }
 
-    private static function userExists($userName, $password) {
+    public static function userExists($userName, $password = null) {
         $user = UsersPDO::get($userName, $password);
 
         if(empty($user)) {
