@@ -59,6 +59,11 @@ class AuthController extends Controller {
         $this->view("register");
     }
 
+    public function logoutAction() {
+        AuthModel::logout();
+        header("Location: /");
+    }
+
     public function loginAction() {
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $userName = $_POST['userName'];

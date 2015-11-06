@@ -14,6 +14,10 @@ class AuthModel {
         return false;
     }
 
+    public static function logout() {
+        $_SESSION['userName'] = null;
+    }
+
     private static function userExists($userName, $password) {
         $user = UsersPDO::get($userName, $password);
 
