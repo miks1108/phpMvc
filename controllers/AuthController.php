@@ -59,6 +59,20 @@ class AuthController extends Controller {
     }
 
     public function loginAction() {
+        if($_SERVER['REQUEST_METHOD'] == 'POST') {
+            $userName = $_POST['userName'];
+            $password = $_POST['password'];
+
+            $errors = [];
+            if(AuthModel::login($userName, $password)) {
+                header("Location: /");
+                return;
+            }
+            else {
+                $errors[] = 'Login failed';
+            }
+        }
+
         $this->view("login");
     }
 
