@@ -1,5 +1,6 @@
 <?php
 require_once "model/PDO/UsersPDO.php";
+require_once "model/AuthModel.php";
 
 class UserController extends Controller {
 
@@ -8,6 +9,12 @@ class UserController extends Controller {
     }
 
     public function listAction() {
+
+        if(!AuthModel::isLogin()) {
+            header('Location: /auth/login/');
+            return;
+        }
+
         $number = 10;
         $page = isset($_GET['page']) ? $_GET['page'] : 1;
         $limitOffset = ($page - 1) * $number;
